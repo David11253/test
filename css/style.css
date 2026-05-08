@@ -67,6 +67,7 @@ body::after {
 }
 
 header {
+    text-decoration: none;
     height: var(--nav-height);
     padding: 0 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -75,12 +76,56 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    
+}
+.logo-section, 
+.logo-section:hover, 
+.logo-section:active, 
+.logo-section:focus {
+    text-decoration: none !important;
+    outline: none;
 }
 
+.logo-section, 
+.logo-section:hover, 
+.logo-section:active, 
+.logo-section:focus {
+    text-decoration: none !important;
+    outline: none;
+}
+
+.logo-section {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    
+}
+
+.logo-section::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: -3px;
+    width: calc(100% + 10px);
+    height: 1.5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px 1.5px rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-section:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+}
 nav {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between ;
     height: 100%;
 }
 
@@ -98,6 +143,10 @@ nav {
     position: relative;
     display: flex;
     gap: 5px;
+    justify-content: space-between;
+    width: 90%;
+    padding-top: 5px;
+    
 }
 
 .nav-btn {
@@ -264,24 +313,4 @@ a:hover,
 a:focus {
     color: inherit;
     text-decoration: none;
-}
-
-@media (max-width: 10000px) {
-    nav {
-        display: flex;
-        gap: 100px;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-    }
-}
-
-@media (max-width: 1520px) {
-    nav {
-        display: flex;
-        gap: 0px;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-    }
 }
