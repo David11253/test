@@ -22,6 +22,7 @@ section[id] {
     scroll-margin-top: 900px;
 }
 
+
 body::before {
     content: "";
     position: fixed;
@@ -226,7 +227,6 @@ footer {
     background: rgb(0, 0, 0);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--gray);
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -264,4 +264,24 @@ a:hover,
 a:focus {
     color: inherit;
     text-decoration: none;
+}
+
+@media (max-width: 10000px) {
+    nav {
+        display: flex;
+        gap: 100px;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+}
+
+@media (max-width: 1520px) {
+    nav {
+        display: flex;
+        gap: 0px;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
 }

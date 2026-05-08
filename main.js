@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const target = btn.getAttribute('data-target');
 
+            // 1. Визуально активируем кнопку
             buttons.forEach(b => b.classList.remove('active-link'));
             btn.classList.add('active-link');
 
