@@ -3,7 +3,7 @@
     --text: #ffffff;
     --gray: #a1a1aa;
     --nav-height: 60px;
-    --current-accent: #00d2ff; 
+    --current-accent: #00d2ff;
     color: #fff;
     scroll-behavior: smooth;
 }
@@ -12,14 +12,14 @@ body {
     margin: 0;
     min-height: 100vh;
     background-attachment: fixed;
-    background-color: #000000; 
-    
+    background-color: #000000;
+
     position: relative;
     overflow-x: hidden;
 }
 
 section[id] {
-    scroll-margin-top: 900px; 
+    scroll-margin-top: 900px;
 }
 
 body::before {
@@ -32,7 +32,7 @@ body::before {
     background-image: url('/img/fone.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.15; 
+    opacity: 0.15;
     z-index: -2;
 }
 
@@ -44,23 +44,27 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(
-        circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(255, 255, 255, 0.05) 0%, 
-        rgba(0, 0, 0, 0) 100%
-    );
-    
-    background-color: #120207; 
+    background: radial-gradient(circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(0, 0, 0, 0) 100%);
+
+    background-color: #120207;
     z-index: -1;
     pointer-events: none;
-    
+
     animation: alphaPulse 8s infinite alternate ease-in-out;
 }
 
 @keyframes alphaPulse {
-    0% { opacity: 0.3; }   
-    100% { opacity: 0.6; } 
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
 }
+
 header {
     height: var(--nav-height);
     padding: 0 40px;
@@ -85,7 +89,9 @@ nav {
     gap: 12px;
 }
 
-.mini-logo { height: 28px; }
+.mini-logo {
+    height: 28px;
+}
 
 .nav-links {
     position: relative;
@@ -117,12 +123,12 @@ nav {
 
 .underline {
     position: absolute;
-    bottom: -10px; 
+    bottom: -10px;
     height: 3px;
     background: var(--current-accent);
-    box-shadow: 0 0 15px var(--current-accent); 
-    transition: 
-        left 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+    box-shadow: 0 0 15px var(--current-accent);
+    transition:
+        left 0.6s cubic-bezier(0.23, 1, 0.32, 1),
         width 0.6s cubic-bezier(0.23, 1, 0.32, 1),
         background 0.7s ease,
         box-shadow 0.7s ease;
@@ -138,10 +144,26 @@ nav {
     outline: none;
 }
 
-.page { display: none; padding: 20px; text-align: center; }
-.page.active { display: block; animation: fadeIn 0.5s; }
+.page {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.page.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 .container {
     position: fixed;
@@ -181,22 +203,27 @@ nav {
 .home-content {
     margin-left: 220px;
     margin-top: 20px;
-    margin-bottom: 60px; /* Отступ под высоту футера */
+    margin-bottom: 60px;
+    /* Отступ под высоту футера */
     padding: 40px 60px;
     box-sizing: border-box;
     text-align: left;
     min-height: calc(100vh - var(--nav-height) - 40px);
 }
-.home-content h2{
+
+.home-content h2 {
     text-align: center;
 }
+
 .home-div {
     max-height: 200px;
     overflow-y: scroll;
 }
+
 footer {
     text-align: center;
-    background: rgba(13, 13, 13, 0.8);
+    color: #f5f5f5;
+    background: rgb(0, 0, 0);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--gray);
     position: fixed;
@@ -208,6 +235,7 @@ footer {
     font-size: 0.85rem;
     z-index: -1;
 }
+
 footer p {
     margin: 0;
 }
@@ -215,10 +243,25 @@ footer p {
 /* Адаптив для маленьких экранов */
 @media (max-width: 768px) {
     .container {
-        display: none; /* Прячем боковую панель на мобилках */
+        display: none;
+        /* Прячем боковую панель на мобилках */
     }
+
     .home-content {
         margin-left: 0;
         padding: 20px;
     }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
 }
