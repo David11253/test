@@ -17,7 +17,7 @@
         <a href="./index.html" style="border-bottom: none;">
         <div class="logo-section">
         <img src="./img/l.png" alt="Logo" class="mini-logo">
-        <span class="logo-text">Официальный портал Санктонии</span>
+        <span class="logo-text">|Официальный портал Санктонии</span>
       </div></a>
         <button class="nav-btn" id="btn1" data-target="home">Главная </button>
         <button class="nav-btn" data-target="features">Вики </button>
@@ -45,14 +45,11 @@
 
 <div class="server-card">
   <div class="card-content">
-    <div class="image-placeholder">
-      <img src="./img/z.png" alt="Chicken" />
-    </div>
 
     <div class="text-block">
-      <h1 class="title">Sanctonia</h1>
+      <h1 class="title">Sanctonia--></h1>
       <p class="description">
-        Санктония — это не просто сервер в Minecraft. Это полноценное ролевое государство с абсолютной монархией,
+        это не просто сервер в Minecraft. Это полноценное ролевое государство с абсолютной монархией,
           живущее по собственным законам, обладающее уникальной историей и предоставляющее игрокам беспрецедентную
           свободу действий.
       </p>
@@ -60,7 +57,7 @@
       <div class="actions">
         <div class="ip-container">
           <span class="ip-address">Sanctonia</span>
-          <button class="copy-btn">
+          <button class="copy-btn" onclick="copyText()">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
         </div>
@@ -137,8 +134,10 @@
     </div>
     <div id="features" class="page">
       <h1>Законодательство</h1>
-
-      <div class="container">
+        <div class="progress-wrapper">
+    <div id="progress-bar"></div>
+</div>
+      <div class="container" id="sidebar">
         <nav class="home-links">
           <ol>
             <li><a href="#constitution">Конституция</a></li>

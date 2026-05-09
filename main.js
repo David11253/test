@@ -2,23 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.nav-btn');
     const pages = document.querySelectorAll('.page');
     const underline = document.querySelector('.underline');
+    const sidebar = document.getElementById('sidebar');
+    const progressBar = document.getElementById('progress-bar');
 
-    const colors = [
-        '#00d2ff', // Home
-        '#3a86ff', // Features
-        '#8338ec', // Buy
-        '#a121e0', // Assets
-        '#c918ab', // Addons
-        '#e0115f', // Docs
-        '#ff007f'  // Stats
-    ];
+    const colors = ['#00d2ff', '#3a86ff', '#8338ec', '#a121e0', '#c918ab', '#e0115f', '#ff007f'];
 
     function updateNav(element, index) {
         if (!element || !underline) return;
-
         underline.style.width = `${element.offsetWidth}px`;
         underline.style.left = `${element.offsetLeft}px`;
-
         const selectedColor = colors[index] || colors[0];
         document.documentElement.style.setProperty('--current-accent', selectedColor);
     }
@@ -26,18 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     buttons.forEach((btn, index) => {
         btn.addEventListener('click', () => {
             const target = btn.getAttribute('data-target');
-
-            // 1. Визуально активируем кнопку
             buttons.forEach(b => b.classList.remove('active-link'));
             btn.classList.add('active-link');
-
             updateNav(btn, index);
-
             pages.forEach(p => p.classList.remove('active'));
             const activePage = document.getElementById(target);
-            if (activePage) {
-                activePage.classList.add('active');
-            }
+            if (activePage) activePage.classList.add('active');
         });
     });
 
@@ -45,6 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.setProperty('--mouse-x', e.clientX + 'px');
         document.body.style.setProperty('--mouse-y', e.clientY + 'px');
     });
+
+    if (sidebar && progressBar) {
+        sidebar.addEventListener('scroll', () => {
+            const winScroll = sidebar.scrollTop;
+            const height = sidebar.scrollHeight - sidebar.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.height = scrolled + "%";
+        });
+    }
 
     const startBtn = document.querySelector('.nav-btn[data-target="home"]') || buttons[0];
     if (startBtn) {
@@ -54,9 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         const active = document.querySelector('.nav-btn.active-link');
-        if (active) {
-            const index = Array.from(buttons).indexOf(active);
-            updateNav(active, index);
-        }
+        if (active) updateNav(active, Array.from(buttons).indexOf(active));
     });
 });
+
+function copyText() {
+    const text = document.querySelector('.ip-address').innerText;
+    const btn = document.querySelector('.copy-btn');
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Скопировано!';
+        setTimeout(() => { btn.innerText = originalText; }, 1500);
+    });
+}
